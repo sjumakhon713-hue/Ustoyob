@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F766E">
+<title>Устоёб — усто дар наздикӣ</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<style>
+:root{--t:#0F766E;--t2:#14958A;--tl:#DDF3EF;--o:#F97316;--ol:#FFEBDC;--y:#F5B301;--r:#DC2626;--rl:#FDE7E7;--ink:#13221F;--mut:#5E6E6A;--line:#E1E8E6;--bg:#F3F6F5;--card:#fff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:15.5px;line-height:1.45;padding-bottom:84px}
+button,input,select,textarea{font:inherit;color:inherit}
+header{position:sticky;top:0;z-index:10;background:var(--t);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+header .lg{width:36px;height:36px;border-radius:10px;background:#ffffff22;display:grid;place-items:center;font-size:20px}
+header h1{font-size:19px;margin:0;line-height:1.1}header h1 span{display:block;font-size:12px;font-weight:500;color:#BDEBE4}
+.loc{margin-left:auto;font-size:12.5px;background:#ffffff22;padding:6px 10px;border-radius:99px;cursor:pointer;white-space:nowrap;max-width:46%;overflow:hidden;text-overflow:ellipsis}
+#app{max-width:720px;margin:0 auto;padding:14px}
+nav#nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;z-index:10;padding-bottom:env(safe-area-inset-bottom)}
+nav#nav button{all:unset;flex:1;text-align:center;padding:8px 2px 9px;font-size:11.5px;color:var(--mut);cursor:pointer;position:relative}
+nav#nav button .i{display:block;font-size:21px;line-height:1.2}nav#nav button.on{color:var(--t);font-weight:700}
+nav#nav b.bd{position:absolute;top:4px;left:55%;background:var(--r);color:#fff;font-size:10.5px;border-radius:9px;padding:0 5px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(19,34,31,.06);border:1px solid var(--line)}
+h2{font-size:18px;margin:0 0 8px}h3{font-size:16px;margin:0 0 6px}
+.muted{color:var(--mut)}.small{font-size:13px}
+.btn{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--t);color:#fff;border-radius:12px;padding:13px 16px;font-weight:700;cursor:pointer;text-align:center;width:100%}
+.btn.o{background:var(--o)}.btn.ghost{background:var(--tl);color:var(--t)}.btn.red{background:var(--rl);color:var(--r)}.btn.sm{width:auto;padding:8px 12px;font-size:13.5px;border-radius:10px}
+.row{display:flex;gap:10px;align-items:center}.wrap{flex-wrap:wrap}.grow{flex:1}
+.hero{background:linear-gradient(135deg,var(--t),#0B5E57);color:#fff;border-radius:20px;padding:18px;margin-bottom:12px}
+.hero h2{font-size:22px;margin:0 0 4px}.hero .muted{color:#C6EEE8}
+.search{display:flex;gap:8px;background:#fff;border-radius:12px;padding:4px 4px 4px 12px;margin-top:12px}.search input{border:0;flex:1;outline:none;background:transparent;padding:8px 0}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.cat{all:unset;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 4px;text-align:center;font-size:12.5px;font-weight:600}
+.cat .i{display:block;font-size:28px;margin-bottom:4px}.cat.on{border-color:var(--t);background:var(--tl);color:var(--t)}
+.pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:700;background:var(--tl);color:var(--t)}
+.pill.o{background:var(--ol);color:#B4500B}.pill.r{background:var(--rl);color:var(--r)}.pill.g{background:#EEF1F0;color:#4B5A57}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:10px}
+.chip{all:unset;cursor:pointer;white-space:nowrap;padding:8px 12px;border-radius:99px;background:#fff;border:1px solid var(--line);font-size:13.5px;font-weight:600}
+.chip.on{background:var(--t);color:#fff;border-color:var(--t)}
+.m{display:flex;gap:12px}.ava{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-weight:800;font-size:19px;color:#fff;flex:none;position:relative}
+.ava i{position:absolute;right:-3px;bottom:-3px;width:15px;height:15px;border-radius:50%;background:#22C55E;border:2.5px solid #fff}
+.stars{color:var(--y);letter-spacing:1px;white-space:nowrap}.stars .e{color:#D6DEDC}
+.acts{display:grid;grid-template-columns:1.4fr 1fr;gap:8px;margin-top:12px}
+.call{background:var(--o)}
+input[type=text],input[type=tel],input[type=number],select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--t2)}
+label.f{display:block;font-size:13px;font-weight:700;color:var(--mut);margin:10px 0 5px}
+.star-in{display:flex;gap:6px;justify-content:center}.star-in button{all:unset;cursor:pointer;font-size:38px;color:#D6DEDC}.star-in button.on{color:var(--y)}
+.rev{border-top:1px solid var(--line);padding:10px 0}
+.sheet-bg{position:fixed;inset:0;background:rgba(10,25,22,.5);z-index:30;display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:#fff;border-radius:20px 20px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));width:100%;max-width:720px;max-height:90vh;overflow:auto}
+.toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;z-index:40;font-size:14px;max-width:90vw}
+.warn{background:var(--ol);border:1px solid #F8CFA9;border-radius:12px;padding:10px 12px;font-size:13.5px}
+.ai{background:#F2F7FF;border:1px solid #D7E5FB;border-radius:14px;padding:12px 14px;font-size:14.5px}
+.st{font-size:12px;font-weight:800;padding:3px 9px;border-radius:99px}
+.st.new{background:#E0EAFF;color:#2747A8}.st.accepted{background:var(--ol);color:#B4500B}.st.done{background:var(--tl);color:var(--t)}.st.declined,.st.cancel{background:#EEF1F0;color:#59645F}
+.sos{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;width:100%;background:#fff;border:2px solid var(--o);border-radius:16px;padding:14px;margin-bottom:12px}
+.sos .i{width:46px;height:46px;border-radius:50%;background:var(--o);color:#fff;display:grid;place-items:center;font-size:22px;flex:none}
+.switch{all:unset;cursor:pointer;width:52px;height:30px;border-radius:99px;background:#CBD5D2;position:relative;flex:none}.switch::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s}
+.switch.on{background:#22C55E}.switch.on::after{left:25px}
+a{color:var(--t2)}
+</style>
+</head>
+<body>
+<header><div class="lg">🛠️</div><h1>Устоёб<span>усто дар наздикии шумо</span></h1><span class="loc" id="loc" onclick="pickCity()">📍 …</span></header>
+<div id="app"></div>
+<nav id="nav"></nav>
+<script>
+'use strict';
+const CATS = { elec: ['⚡', 'Барқчӣ'], plumb: ['🚰', 'Сантехник'], tutor: ['📚', 'Репетитор'], repair: ['🔧', 'Таъмири техника'], carp: ['🪚', 'Дурадгор'], paint: ['🎨', 'Рангмол'], clean: ['🧹', 'Тозакунӣ'], ac: ['❄️', 'Кондитсионер'], build: ['🧱', 'Сохтмон'], auto: ['🚗', 'Автоусто'] };
+const CITIES = { 'Душанбе': [38.5598, 68.7870], 'Хуҷанд': [40.2826, 69.6222], 'Кӯлоб': [37.9146, 69.7845], 'Бохтар': [37.8364, 68.7806], 'Истаравшан': [39.9108, 69.0064], 'Турсунзода': [38.5108, 68.2303], 'Ваҳдат': [38.5560, 69.0133], 'Хоруғ': [37.4897, 71.5531], 'Панҷакент': [39.4952, 67.6093], 'Исфара': [40.1262, 70.6253], 'Данғара': [38.0951, 69.3366] };
+const COLORS = ['#0F766E', '#F97316', '#7C3AED', '#2563EB', '#DB2777', '#059669', '#B45309', '#475569'];
+const SUBJS = ['Математика', 'Физика', 'Химия', 'Биология', 'Забони англисӣ', 'Забони русӣ', 'Забони тоҷикӣ', 'Таърих', 'Информатика', 'Омодагӣ ба ММТ'];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const DEF_SRV = 'https://darzi-ai.akramzodasorbon0.workers.dev';
+let S = { srv: DEF_SRV, dev: '', city: '', pos: null, me: null, myName: '', myPhone: '', addr: '', seenJobs: {} };
+try { Object.assign(S, JSON.parse(localStorage.getItem('ustoyob') || '{}')); } catch (e) { }
+if (!S.dev) S.dev = 'u' + Math.random().toString(36).slice(2, 12);
+function save() { try { localStorage.setItem('ustoyob', JSON.stringify(S)); } catch (e) { } }
+function toast(m) { const t = document.createElement('div'); t.className = 'toast'; t.textContent = m; document.body.appendChild(t); setTimeout(() => t.remove(), 2800); }
+async function api(path, opt = {}) {
+  if (!S.srv) throw new Error('Сервер танзим нашудааст');
+  const o = { method: opt.method || 'GET', headers: {} }; if (opt.body) { o.method = opt.method || 'POST'; o.headers['Content-Type'] = 'application/json'; o.body = JSON.stringify(opt.body); }
+  let r; try { r = await fetch(S.srv.replace(/\/$/, '') + path, o); } catch (e) { throw new Error('Интернет ё сервер дастрас нест'); }
+  const j = await r.json().catch(() => ({})); if (!r.ok || j.error) throw new Error(j.error || 'Хато ' + r.status); return j;
+}
+function dist(a, b) { const R = 6371, dLa = (b[0] - a[0]) * Math.PI / 180, dLo = (b[1] - a[1]) * Math.PI / 180; const x = Math.sin(dLa / 2) ** 2 + Math.cos(a[0] * Math.PI / 180) * Math.cos(b[0] * Math.PI / 180) * Math.sin(dLo / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(x)); }
+function myPos() { return S.pos || (S.city && CITIES[S.city]) || null; }
+function kmOf(m) { const p = myPos(); if (!p || m.lat == null || m.lon == null) return null; return dist(p, [m.lat, m.lon]); }
+const kmTxt = k => k == null ? '' : k < 1 ? Math.round(k * 1000) + ' м' : (k < 10 ? k.toFixed(1) : Math.round(k)) + ' км';
+const stars = (v, n) => v ? `<span class="stars">${'★'.repeat(Math.round(v))}<span class="e">${'★'.repeat(5 - Math.round(v))}</span></span> <b>${(+v).toFixed(1)}</b> <span class="muted small">(${n})</span>` : '<span class="muted small">ҳоло баҳо нест</span>';
+const initials = n => String(n || '?').replace(/\(.*?\)/g, '').trim().split(/\s+/).slice(0, 2).map(x => x[0]).join('').toUpperCase();
+const online = m => m.avail && m.seen && Date.now() - m.seen < 3 * 864e5;
+const telOf = p => 'tel:' + String(p).replace(/[^\d+]/g, '');
+const waOf = p => 'https://wa.me/' + String(p).replace(/\D/g, '');
+
+/* ---------- Ҷойгиршавӣ ---------- */
+function locLabel() { document.getElementById('loc').textContent = '📍 ' + (S.pos ? 'Ҷойи ман' + (S.city ? ' · ' + S.city : '') : S.city || 'Шаҳрро интихоб кунед'); }
+function getGPS(cb) {
+  if (!navigator.geolocation) { toast('GPS дастрас нест'); return cb && cb(false); }
+  navigator.geolocation.getCurrentPosition(p => { S.pos = [p.coords.latitude, p.coords.longitude]; let best = null, bd = 1e9; for (const [c, xy] of Object.entries(CITIES)) { const d = dist(S.pos, xy); if (d < bd) { bd = d; best = c; } } if (bd < 40) S.city = best; save(); locLabel(); cb && cb(true); },
+    () => { toast('Ҷойгиршавӣ муайян нашуд — шаҳрро интихоб кунед'); cb && cb(false); }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 300000 });
+}
+function pickCity() {
+  sheet(`<h2>📍 Шумо дар куҷо?</h2><button class="btn" onclick="closeSheet();getGPS(()=>{MS=null;render()})">🎯 Ҷойи маро бо GPS муайян кун</button>
+   <div class="g" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">${Object.keys(CITIES).map(c => `<button class="chip ${S.city === c && !S.pos ? 'on' : ''}" style="text-align:center" onclick="S.city='${c}';S.pos=null;save();locLabel();closeSheet();MS=null;render()">${c}</button>`).join('')}</div>`);
+}
+
+/* ---------- Навигатсия ---------- */
+let tab = 'home', view = null, cur = {}, MS = null, JOBS = null, MJOBS = null, POLL = null;
+const TABS = [['home', '🏠', 'Асосӣ'], ['list', '📍', 'Наздик'], ['jobs', '📋', 'Фармоишҳо'], ['master', '🧰', 'Ман устоям']];
+function go(t, v = null, c = {}) { tab = t; view = v; cur = c; render(); scrollTo(0, 0); }
+function render() {
+  locLabel();
+  const V = view ? { master_page: vMaster }[view] : { home: vHome, list: vList, jobs: vJobs, master: vMe }[tab];
+  document.getElementById('app').innerHTML = V();
+  const pend = (JOBS || []).filter(j => j.status === 'done' && !j.reviewed).length + (MJOBS || []).filter(j => j.status === 'new').length;
+  document.getElementById('nav').innerHTML = TABS.map(([k, i, l]) => `<button class="${tab === k ? 'on' : ''}" onclick="go('${k}')"><span class="i">${i}</span>${l}${(k === 'jobs' && (JOBS || []).some(j => j.status === 'done' && !j.reviewed)) || (k === 'master' && (MJOBS || []).some(j => j.status === 'new')) ? '<b class="bd">•</b>' : ''}</button>`).join('');
+}
+
+/* ---------- Асосӣ ---------- */
+let CAT = '';
+function vHome() {
+  if (!MS) loadMasters();
+  const near = (MS || []).filter(online).sort((a, b) => (kmOf(a) ?? 1e9) - (kmOf(b) ?? 1e9)).slice(0, 3);
+  return `<div class="hero"><h2>Кадом усто лозим?</h2><div class="muted small">Барқчӣ, сантехник, репетитор ва дигарон — дар наздикии шумо, бо баҳои мизоҷони воқеӣ.</div>
+   <div class="search"><input type="text" id="prob" placeholder="Мушкилро нависед: «розетка шарора медиҳад»…" onkeydown="if(event.key==='Enter')aiHelp()"><button class="btn sm o" onclick="aiHelp()">🤖</button></div></div>
+   ${cur.ai ? aiBox(cur.ai) : ''}
+   <div class="cats">${Object.entries(CATS).map(([k, [i, n]]) => `<button class="cat" onclick="CAT='${k}';go('list')"><span class="i">${i}</span>${n}</button>`).join('')}</div>
+   <button class="sos" onclick="sos()"><span class="i">📞</span><div class="grow"><b>Зуд усто лозим</b><div class="muted small">Ба устои озоди наздиктарин бо як ламс занг занед</div></div><span>›</span></button>
+   <div class="card"><div class="row"><h3 class="grow" style="margin:0">Устоҳои озод дар наздикӣ</h3><a href="#" onclick="CAT='';go('list');return false">Ҳама →</a></div>
+    ${MS === null ? '<p class="muted">⏳ Боргирӣ…</p>' : near.length ? near.map(m => miniM(m)).join('') : `<p class="muted small">${S.city ? 'Дар ' + esc(S.city) + ' ҳоло устои озод сабт нашудааст.' : 'Шаҳр ё GPS-ро интихоб кунед.'} Шумо уcто ҳастед? <a href="#" onclick="go('master');return false">Сабти ном кунед</a>.</p>`}</div>`;
+}
+function aiBox(a) {
+  if (a === 1) return `<div class="ai" style="margin-bottom:12px">⏳ ЗС мушкилро таҳлил мекунад…</div>`;
+  if (a.err) return `<div class="warn" style="margin-bottom:12px">${esc(a.err)}</div>`;
+  const c = CATS[a.cat];
+  return `<div class="ai" style="margin-bottom:12px"><b>${c ? c[0] + ' Ба шумо ' + c[1].toLowerCase() + ' лозим аст' : 'Маслиҳат'}</b>${a.urgent ? ' <span class="pill r">фаврӣ</span>' : ''}
+   <ul style="margin:8px 0 8px 18px;padding:0">${(a.tips || []).map(t => `<li>${esc(t)}</li>`).join('')}</ul>${c ? `<button class="btn sm" onclick="CAT='${a.cat}';go('list')">${c[0]} ${c[1]}-ҳои наздикро бинед →</button>` : ''}</div>`;
+}
+let AI = null;
+async function aiHelp() {
+  const t = (document.getElementById('prob').value || '').trim(); if (!t) return toast('Мушкилро кӯтоҳ нависед');
+  cur.ai = 1; render();
+  const p = `Ту ёрдамчии барномаи «Устоёб» дар Тоҷикистон ҳастӣ. Мизоҷ мушкилро навишт: «${t}».
+Муайян кун, ки кадом усто лозим аст. Категорияҳо: ${Object.entries(CATS).map(([k, v]) => k + '=' + v[1]).join(', ')}.
+Танҳо JSON: {"cat":"код","urgent":true/false,"tips":["2–3 маслиҳати кӯтоҳи бехатарӣ ё тайёрӣ то омадани усто, ба забони тоҷикӣ"]}.
+Агар хатари барқ, газ ё об бошад, маслиҳати аввал — бехатарӣ (масалан, барқро хомӯш кунед).`;
+  try { const j = AI ? parseJ((await AI(p)).text || '') : await remoteJSON(p); if (!CATS[j.cat]) j.cat = null; cur.ai = j; }
+  catch (e) { const g = guessCat(t); cur.ai = g ? { cat: g, tips: ['Ба усто мушкилро муфассал гӯед ва акс фиристед.'] } : { err: 'ЗС ҳоло ҷавоб надод. Категорияро аз поён интихоб кунед.' }; }
+  if (tab === 'home' && !view) render();
+}
+function guessCat(t) { t = t.toLowerCase(); const W = { elec: /барқ|розетка|лампа|сим|свет|электр/, plumb: /об|кран|қубур|ҳоҷатхона|труба|канализ/, tutor: /дарс|репетитор|математ|англис|имтиҳон|ммт/, repair: /телефон|яхдон|телевизор|мошинаи ҷомашӯ|компютер/, ac: /кондитсионер|кондиционер|сардкун/, auto: /мошин|авто|мотор|чарх/, paint: /ранг|девор/, carp: /дар|тиреза|мебел|чӯб/, clean: /тоза|қолин/, build: /гил|кафел|бино|сохт/ }; for (const [k, r] of Object.entries(W)) if (r.test(t)) return k; return null; }
+const parseJ = x => JSON.parse(x.slice(x.indexOf('{'), x.lastIndexOf('}') + 1));
+async function remoteJSON(p) { const r = await fetch(S.srv.replace(/\/$/, '') + '/ai', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode: 'json', prompt: p, images: [] }) }); const j = await r.json(); if (!r.ok || j.error) throw new Error(j.error); const x = j.text; return JSON.parse(x.slice(x.indexOf('{'), x.lastIndexOf('}') + 1)); }
+function sos() {
+  if (!MS) return toast('⏳ Боргирӣ…');
+  const pick = k => { const list = MS.filter(m => (!k || m.cat === k) && online(m)).sort((a, b) => (kmOf(a) ?? 1e9) - (kmOf(b) ?? 1e9)); return list[0]; };
+  sheet(`<h2>📞 Зуд усто лозим</h2><p class="muted small">Соҳаро интихоб кунед — ба устои озоди наздиктарин занг мезанем.</p>
+   <div class="cats">${Object.entries(CATS).map(([k, [i, n]]) => { const m = pick(k); return `<button class="cat" ${m ? `onclick="closeSheet();callM(${m.id})"` : 'style="opacity:.45"'}><span class="i">${i}</span>${n}${m ? `<div class="muted small">${kmTxt(kmOf(m)) || esc(m.city || '')}</div>` : '<div class="muted small">нест</div>'}</button>`; }).join('')}</div>`);
+}
+function callM(id) { const m = (MS || []).find(x => x.id === id) || (cur.m && cur.m.id === id && cur.m); if (!m) return; location.href = telOf(m.phone); }
+
+/* ---------- Рӯйхат ---------- */
+let SORT = 'near';
+async function loadMasters() { MS = MS || null; try { const j = await api('/usto/masters'); MS = j.masters; } catch (e) { MS = []; toast(e.message); } if (!view && (tab === 'list' || tab === 'home')) render(); }
+function vList() {
+  if (MS === null) loadMasters();
+  let list = (MS || []).filter(m => !CAT || m.cat === CAT);
+  list.forEach(m => m._km = kmOf(m));
+  if (SORT === 'near') list.sort((a, b) => (online(b) - online(a)) || ((a._km ?? 1e9) - (b._km ?? 1e9)));
+  else list.sort((a, b) => ((b.avg || 0) - (a.avg || 0)) || (b.n - a.n));
+  return `<div class="chips"><button class="chip ${!CAT ? 'on' : ''}" onclick="CAT='';render()">Ҳама</button>${Object.entries(CATS).map(([k, [i, n]]) => `<button class="chip ${CAT === k ? 'on' : ''}" onclick="CAT='${k}';render()">${i} ${n}</button>`).join('')}</div>
+   <div class="row" style="margin-bottom:10px"><span class="muted small grow">${MS === null ? '⏳' : list.length + ' усто'}${myPos() ? '' : ' · <a href="#" onclick="pickCity();return false">ҷойгиршавиро интихоб кунед</a>'}</span>
+    <button class="chip ${SORT === 'near' ? 'on' : ''}" onclick="SORT='near';render()">📍 Наздик</button><button class="chip ${SORT === 'top' ? 'on' : ''}" onclick="SORT='top';render()">⭐ Беҳтарин</button></div>
+   ${MS === null ? '<div class="card muted">⏳ Боргирӣ…</div>' : list.length ? list.map(cardM).join('') : `<div class="card"><b>Ҳоло дар ин соҳа усто нест</b><p class="muted small">Устоҳои шиносатонро даъват кунед, ки дар «Ман устоям» сабт шаванд.</p></div>`}`;
+}
+function avaM(m) { return `<div class="ava" style="background:${COLORS[m.id % COLORS.length]}">${esc(initials(m.name))}${online(m) ? '<i></i>' : ''}</div>`; }
+function miniM(m) { const c = CATS[m.cat] || ['🛠️', '']; return `<div class="m" style="padding:10px 0;border-top:1px solid var(--line);cursor:pointer" onclick="openM(${m.id})">${avaM(m)}<div class="grow"><b>${esc(m.name)}</b><div class="small muted">${c[0]} ${c[1]}${m.sub ? ' · ' + esc(m.sub) : ''} · ${kmTxt(kmOf(m)) || esc(m.city || '')}</div><div class="small">${stars(m.avg, m.n)}</div></div><a class="btn sm o" style="align-self:center" href="${telOf(m.phone)}" onclick="event.stopPropagation()">📞</a></div>`; }
+function cardM(m) {
+  const c = CATS[m.cat] || ['🛠️', ''];
+  return `<div class="card"><div class="m" onclick="openM(${m.id})" style="cursor:pointer">${avaM(m)}<div class="grow"><div class="row"><b class="grow">${esc(m.name)}</b>${m._km != null ? `<span class="pill g">📍 ${kmTxt(m._km)}</span>` : ''}</div>
+    <div class="small muted">${c[0]} ${c[1]}${m.sub ? ' · ' + esc(m.sub) : ''} · ${esc(m.city || '')}${m.area ? ', ' + esc(m.area) : ''}</div>
+    <div class="small" style="margin-top:3px">${stars(m.avg, m.n)}${m.done ? ` · <span class="muted">✅ ${m.done} кор</span>` : ''}</div>
+    <div class="row wrap" style="gap:6px;margin-top:6px">${online(m) ? '<span class="pill">● озод</span>' : '<span class="pill g">банд</span>'}${m.price ? `<span class="pill o">${esc(m.price)}</span>` : ''}${m.exp ? `<span class="pill g">${m.exp} сол таҷриба</span>` : ''}</div></div></div>
+   <div class="acts"><a class="btn call" href="${telOf(m.phone)}">📞 Занг</a><button class="btn ghost" onclick="orderM(${m.id})">📝 Даъват</button></div></div>`;
+}
+async function openM(id) { go(tab, 'master_page', { id, m: (MS || []).find(x => x.id === id), rv: null }); try { const j = await api('/usto/master/' + id); cur.m = j.master; cur.rv = j.reviews; } catch (e) { cur.rv = []; toast(e.message); } if (view === 'master_page' && cur.id === id) render(); }
+function vMaster() {
+  const m = cur.m; if (!m) return '<div class="card muted">⏳</div>'; const c = CATS[m.cat] || ['🛠️', ''], k = kmOf(m);
+  return `<button class="btn ghost sm" onclick="go(tab)">← Бозгашт</button>
+   <div class="card" style="margin-top:12px;text-align:center">${avaM(m).replace('class="ava"', 'class="ava" style="margin:0 auto;width:76px;height:76px;font-size:26px;border-radius:22px;background:' + COLORS[m.id % COLORS.length] + '"')}
+    <h2 style="margin:10px 0 2px">${esc(m.name)}</h2><div class="muted">${c[0]} ${c[1]}${m.sub ? ' · ' + esc(m.sub) : ''}</div>
+    <div style="margin:8px 0">${stars(m.avg, m.n)}</div>
+    <div class="row wrap" style="gap:6px;justify-content:center">${online(m) ? '<span class="pill">● ҳозир озод</span>' : '<span class="pill g">ҳозир банд</span>'}<span class="pill g">✅ ${m.done} кори иҷрошуда</span>${m.exp ? `<span class="pill g">${m.exp} сол таҷриба</span>` : ''}</div>
+    <div class="acts"><a class="btn call" href="${telOf(m.phone)}">📞 Занг задан</a><button class="btn ghost" onclick="orderM(${m.id})">📝 Даъват</button></div>
+    <a class="btn ghost sm" style="margin:8px auto 0" href="${waOf(m.phone)}">💬 WhatsApp</a></div>
+   <div class="card"><div class="row"><span>📍</span><span class="grow">${esc(m.city || '')}${m.area ? ', ' + esc(m.area) : ''}</span>${k != null ? `<b>${kmTxt(k)}</b>` : ''}</div>
+    ${m.lat != null ? `<a class="small" href="https://www.google.com/maps/search/?api=1&query=${m.lat},${m.lon}">Дар харита кушодан →</a>` : ''}
+    ${m.price ? `<div class="row" style="margin-top:8px"><span>💵</span><span class="grow">${esc(m.price)}</span></div>` : ''}
+    ${m.about ? `<p style="margin:10px 0 0">${esc(m.about)}</p>` : ''}</div>
+   <div class="card"><h3>Шарҳҳо баъди кор</h3><p class="small muted" style="margin-top:0">Баҳоро танҳо мизоҷе гузошта метавонад, ки фармоишаш иҷро шудааст.</p>
+    ${cur.rv === null ? '<p class="muted">⏳</p>' : cur.rv.length ? cur.rv.map(r => `<div class="rev"><div class="row"><b class="grow">${esc(r.name || 'Мизоҷ')}</b><span class="stars">${'★'.repeat(r.stars)}<span class="e">${'★'.repeat(5 - r.stars)}</span></span></div>${r.text ? `<div>${esc(r.text)}</div>` : ''}<div class="small muted">${new Date(r.t).toLocaleDateString('ru-RU')}</div></div>`).join('') : '<p class="muted small">Ҳоло шарҳ нест.</p>'}</div>`;
+}
+
+/* ---------- Фармоиш (даъват) ---------- */
+function orderM(id) {
+  const m = (MS || []).find(x => x.id === id) || cur.m;
+  sheet(`<h2>📝 Даъвати ${esc(m.name)}</h2><p class="muted small" style="margin-top:0">Усто фармоишро мебинад ва ба шумо занг мезанад.</p>
+   <label class="f">Номи шумо</label><input type="text" id="on" value="${esc(S.myName)}">
+   <label class="f">Телефони шумо</label><input type="tel" id="op" value="${esc(S.myPhone)}" placeholder="+992 …">
+   <label class="f">Суроға</label><input type="text" id="oa" value="${esc(S.addr)}" placeholder="Кӯча, хона, ошёна">
+   <label class="f">Чӣ кор лозим?</label><textarea id="ot" rows="3" placeholder="${m.cat === 'tutor' ? 'Фан, синф, чанд бор дар ҳафта' : 'Мушкилро кӯтоҳ нависед'}"></textarea>
+   <button class="btn o" style="margin-top:12px" onclick="sendOrder(${m.id})">Фиристодан</button><a class="btn ghost" style="margin-top:8px" href="${telOf(m.phone)}">📞 Ё ҳозир занг занед</a>`);
+}
+async function sendOrder(id) {
+  S.myName = document.getElementById('on').value.trim(); S.myPhone = document.getElementById('op').value.trim(); S.addr = document.getElementById('oa').value.trim(); save();
+  try { await api('/usto/jobs', { body: { master_id: id, device: S.dev, name: S.myName, phone: S.myPhone, addr: S.addr, text: document.getElementById('ot').value } }); closeSheet(); toast('✅ Фиристода шуд! Усто бо шумо дар тамос мешавад'); JOBS = null; go('jobs'); }
+  catch (e) { toast('❌ ' + e.message); }
+}
+
+/* ---------- Фармоишҳои ман ---------- */
+const STN = { new: 'Нав — интизори усто', accepted: 'Усто қабул кард', done: 'Иҷро шуд', declined: 'Усто рад кард', cancel: 'Бекор шуд' };
+async function loadJobs() { try { JOBS = (await api('/usto/jobs?device=' + S.dev)).jobs; } catch (e) { JOBS = JOBS || []; } if (tab === 'jobs' && !view) render(); else render(); }
+function vJobs() {
+  if (JOBS === null) loadJobs();
+  return `<h2>Фармоишҳои ман</h2>${JOBS === null ? '<div class="card muted">⏳</div>' : JOBS.length ? JOBS.map(j => { const c = CATS[j.cat] || ['🛠️', ''];
+    return `<div class="card"><div class="row"><b class="grow">${c[0]} ${esc(j.mname)}</b><span class="st ${j.status}">${STN[j.status] || j.status}</span></div>
+     <div class="small muted" style="margin-top:4px">${new Date(j.created).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })} · ${esc(j.addr || '')}</div>${j.text ? `<div style="margin-top:4px">${esc(j.text)}</div>` : ''}
+     <div class="row" style="margin-top:10px;gap:8px">${j.status === 'done' && !j.reviewed ? `<button class="btn o" onclick="rate(${j.id},'${esc(j.mname)}')">⭐ Ба кор баҳо диҳед</button>` : ''}${j.status === 'done' && j.reviewed ? '<span class="pill">✓ баҳо дода шуд</span>' : ''}
+      ${['new', 'accepted'].includes(j.status) ? `<a class="btn sm o" href="${telOf(j.mphone)}">📞 Занг</a><button class="btn sm red" onclick="cancelJob(${j.id})">Бекор кардан</button>` : ''}</div></div>`; }).join('') : `<div class="card"><b>Ҳоло фармоиш нест</b><p class="muted small">Устоеро ёбед ва «📝 Даъват»-ро пахш кунед. Баъди иҷрои кор ин ҷо баҳо медиҳед.</p><button class="btn" onclick="go('list')">📍 Устоҳои наздик</button></div>`}`;
+}
+async function cancelJob(id) { if (!confirm('Фармоишро бекор кунем?')) return; try { await api(`/usto/jobs/${id}/status`, { body: { device: S.dev, status: 'cancel' } }); loadJobs(); } catch (e) { toast(e.message); } }
+let RS = 0;
+function rate(id, name) { RS = 0; sheet(`<h2 style="text-align:center">Кори ${name} ба шумо писанд омад?</h2><div class="star-in" id="rs">${[1, 2, 3, 4, 5].map(n => `<button onclick="RS=${n};document.querySelectorAll('#rs button').forEach((b,i)=>b.classList.toggle('on',i<${n}))">★</button>`).join('')}</div>
+  <textarea id="rt" rows="3" style="margin-top:12px" placeholder="Чӣ хуб буд? Чӣ беҳтар шавад? (ихтиёрӣ)"></textarea><button class="btn o" style="margin-top:12px" onclick="sendRate(${id})">Фиристодан</button>`); }
+async function sendRate(id) { if (!RS) return toast('Ситораҳоро интихоб кунед'); try { await api(`/usto/jobs/${id}/review`, { body: { device: S.dev, stars: RS, text: document.getElementById('rt').value, name: S.myName } }); closeSheet(); toast('Ташаккур! Баҳои шумо ба дигарон кӯмак мекунад'); MS = null; loadJobs(); } catch (e) { toast('❌ ' + e.message); } }
+
+/* ---------- Ман устоям ---------- */
+async function loadMJobs() { if (!S.me) return; try { MJOBS = (await api(`/usto/master/${S.me.id}/jobs?key=${S.me.key}`)).jobs; } catch (e) { MJOBS = MJOBS || []; } render(); }
+function vMe() {
+  if (!S.me) return regForm();
+  if (MJOBS === null) loadMJobs();
+  const m = (MS || []).find(x => x.id === S.me.id) || S.me.p || {}, c = CATS[m.cat] || ['🛠️', ''];
+  const groups = [['new', '🆕 Фармоишҳои нав'], ['accepted', '🔨 Дар ҷараён'], ['done', '✅ Иҷрошуда']];
+  return `<div class="card"><div class="m">${avaM({ ...m, id: S.me.id, avail: S.me.avail, seen: Date.now() })}<div class="grow"><b>${esc(m.name || '')}</b><div class="small muted">${c[0]} ${c[1]} · ${esc(m.city || '')}</div><div class="small">${stars(m.avg, m.n || 0)}</div></div></div>
+    <div class="row" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line)"><div class="grow"><b>${S.me.avail ? 'Ҳозир озодам' : 'Ҳозир бандам'}</b><div class="small muted">Мизоҷон инро мебинанд</div></div><button class="switch ${S.me.avail ? 'on' : ''}" onclick="toggleAvail()"></button></div>
+    <div class="row" style="margin-top:10px;gap:8px"><button class="btn sm ghost" onclick="regForm(true)">✏️ Таҳрир</button><button class="btn sm ghost" onclick="showCode()">🔑 Рамзи барқарорсозӣ</button><button class="btn sm ghost" onclick="loadMJobs()">↻</button></div></div>
+   ${MJOBS === null ? '<div class="card muted">⏳</div>' : groups.map(([st, t]) => { const L = MJOBS.filter(j => st === 'done' ? j.status === 'done' : j.status === st); if (!L.length && st !== 'new') return ''; return `<h3 style="margin:14px 0 8px">${t} ${L.length ? `<span class="pill">${L.length}</span>` : ''}</h3>` + (L.length ? L.map(j => `<div class="card"><div class="row"><b class="grow">${esc(j.cname || 'Мизоҷ')}</b><span class="small muted">${new Date(j.created).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}</span></div>
+      <div class="small muted">📍 ${esc(j.addr || '—')}</div>${j.text ? `<div style="margin-top:4px">${esc(j.text)}</div>` : ''}
+      <div class="row wrap" style="margin-top:10px;gap:8px"><a class="btn sm o" href="${telOf(j.cphone)}">📞 ${esc(j.cphone)}</a>${j.status === 'new' ? `<button class="btn sm" onclick="setJob(${j.id},'accepted')">✓ Қабул</button><button class="btn sm red" onclick="setJob(${j.id},'declined')">Рад</button>` : ''}${j.status === 'accepted' ? `<button class="btn sm" onclick="setJob(${j.id},'done')">✅ Кор иҷро шуд</button>` : ''}</div></div>`).join('') : '<div class="card muted small">Ҳоло фармоиши нав нест. Озод будани худро фаъол нигоҳ доред.</div>'); }).join('')}`;
+}
+async function setJob(id, st) { try { await api(`/usto/jobs/${id}/status`, { body: { key: S.me.key, status: st } }); toast(st === 'done' ? '✅ Мизоҷ акнун метавонад баҳо диҳад' : 'Нигоҳ дошта шуд'); loadMJobs(); } catch (e) { toast(e.message); } }
+async function toggleAvail() { S.me.avail = !S.me.avail; save(); render(); try { await api(`/usto/master/${S.me.id}/avail`, { body: { key: S.me.key, avail: S.me.avail } }); MS = null; } catch (e) { toast(e.message); } }
+function showCode() { sheet(`<h2>🔑 Рамзи барқарорсозӣ</h2><p class="small muted">Онро нигоҳ доред: бо ин рамз ҳисоби худро дар телефони нав барқарор мекунед. Ба касе надиҳед.</p><div class="card" style="font-family:monospace;word-break:break-all;font-size:15px">${S.me.id}-${S.me.key}</div>`); }
+function regForm(edit) {
+  const p = (edit && ((MS || []).find(x => x.id === S.me.id) || S.me.p)) || {};
+  const html = `<h2>${edit ? 'Таҳрири профил' : '🧰 Ман устоям'}</h2><p class="muted small" style="margin-top:0">${edit ? '' : 'Ройгон сабт шавед — мизоҷони наздик шуморо меёбанд ва занг мезананд.'}</p>
+   <label class="f">Ному насаб</label><input type="text" id="rn" value="${esc(p.name || '')}">
+   <label class="f">Телефон</label><input type="tel" id="rp" value="${esc(p.phone || '')}" placeholder="+992 …">
+   <label class="f">Соҳа</label><select id="rc" onchange="document.getElementById('rsw').style.display=this.value==='tutor'?'block':'none'">${Object.entries(CATS).map(([k, [i, n]]) => `<option value="${k}" ${p.cat === k ? 'selected' : ''}>${i} ${n}</option>`).join('')}</select>
+   <div id="rsw" style="display:${p.cat === 'tutor' ? 'block' : 'none'}"><label class="f">Фан</label><select id="rsub">${SUBJS.map(s => `<option ${p.sub === s ? 'selected' : ''}>${s}</option>`).join('')}</select></div>
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><label class="f">Шаҳр</label><select id="rci">${Object.keys(CITIES).map(c => `<option ${(p.city || S.city) === c ? 'selected' : ''}>${c}</option>`).join('')}</select></div><div><label class="f">Маҳалла</label><input type="text" id="ra" value="${esc(p.area || '')}" placeholder="мкр. 8"></div></div>
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><label class="f">Нарх</label><input type="text" id="rpr" value="${esc(p.price || '')}" placeholder="аз 50 сомонӣ"></div><div><label class="f">Таҷриба (сол)</label><input type="number" id="re" value="${p.exp || ''}"></div></div>
+   <label class="f">Дар бораи худ</label><textarea id="rab" rows="3" placeholder="Чӣ корҳо мекунед, кай кор мекунед">${esc(p.about || '')}</textarea>
+   <label class="f">Ҷойгиршавӣ</label><button class="btn ghost" id="rgps" onclick="getGPS(ok=>{document.getElementById('rgps').textContent=ok?'✓ Ҷойгиршавӣ гирифта шуд':'GPS кор накард — маркази шаҳр истифода мешавад'})">🎯 Ҷойи кори маро бо GPS гир</button>
+   <button class="btn o" style="margin-top:14px" onclick="saveMe(${edit ? 1 : 0})">${edit ? 'Нигоҳ доштан' : 'Сабти ном'}</button>
+   ${edit ? '' : `<p class="small muted" style="margin-top:14px">Аллакай сабт шудаед? <a href="#" onclick="restore();return false">Бо рамз барқарор кунед</a></p>`}`;
+  if (edit) { sheet(html); return; }
+  return `<div class="card">${html}</div>`;
+}
+async function saveMe(edit) {
+  const v = id => document.getElementById(id).value; const city = v('rci'); const pos = S.pos && S.city === city ? S.pos : CITIES[city];
+  const body = { name: v('rn'), phone: v('rp'), cat: v('rc'), sub: v('rc') === 'tutor' ? v('rsub') : '', city, area: v('ra'), price: v('rpr'), exp: v('re'), about: v('rab'), lat: pos ? pos[0] : null, lon: pos ? pos[1] : null };
+  if (edit) Object.assign(body, { id: S.me.id, key: S.me.key });
+  try { const r = await api('/usto/master', { body }); S.me = { id: r.id, key: r.key, avail: edit ? S.me.avail : true, p: { ...body, id: r.id } }; save(); if (edit) closeSheet(); MS = null; MJOBS = null; toast(edit ? 'Нигоҳ дошта шуд' : '✅ Шумо сабт шудед! Рамзи барқарорсозиро нигоҳ доред'); loadMasters(); render(); if (!edit) showCode(); }
+  catch (e) { toast('❌ ' + e.message); }
+}
+function restore() { const c = prompt('Рамзи барқарорсозӣ (рақам-рамз):'); if (!c) return; const m = c.trim().match(/^(\d+)-([a-f0-9]{32})$/); if (!m) return toast('Рамз нодуруст'); S.me = { id: +m[1], key: m[2], avail: true }; save(); MJOBS = null; render(); }
+
+/* ---------- Ёрирасонҳо ---------- */
+function sheet(h) { closeSheet(); const bg = document.createElement('div'); bg.className = 'sheet-bg'; bg.id = 'ov'; bg.onclick = e => { if (e.target === bg) closeSheet(); }; bg.innerHTML = `<div class="sheet">${h}</div>`; document.body.appendChild(bg); }
+function closeSheet() { const o = document.getElementById('ov'); if (o) o.remove(); }
+window.addEventListener('hashchange', () => { });
+(async () => { await new Promise(r => setTimeout(r, 0)); try { if (window.claude && claude.use) { const s = await claude.use('sample'); if (s) AI = s; } } catch (e) { }
+  if (!S.city && !S.pos) getGPS(() => render()); render(); loadMasters(); loadJobs(); if (S.me) loadMJobs();
+  POLL = setInterval(() => { if (document.hidden) return; if (tab === 'jobs') loadJobs(); if (tab === 'master' && S.me) loadMJobs(); }, 20000); })();
+render();
+if ('serviceWorker' in navigator && location.protocol === 'https:' && !window.claude) navigator.serviceWorker.register('sw.js').catch(() => { });
+</script>
+</body>
+</html>
